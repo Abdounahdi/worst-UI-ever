@@ -1,0 +1,354 @@
+        @keyframes rainbow-bg {
+            0% { background-color: rgb(57, 255, 20); }
+            20% { background-color: #ff00ff; }
+            40% { background-color: #ff0000; }
+            60% { background-color: #00ff00; }
+            80% { background-color: #0000ff; }
+            100% { background-color: rgb(57, 255, 20); }
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px) rotate(5deg); }
+            75% { transform: translateX(5px) rotate(-5deg); }
+        }
+
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+
+        body {
+            animation: rainbow-bg 2s linear infinite;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: "Comic Sans MS", cursive;
+            cursor: crosshair;
+            overflow: hidden;
+        }
+
+        body::before {
+            content: "😵‍💫";
+            position: fixed;
+            font-size: 100px;
+            animation: spin 3s linear infinite;
+            z-index: -1;
+        }
+
+        #quitButton {
+            padding: 15px 30px;
+            font-size: 28px;
+            background-color: rgb(255, 153, 51);
+            border: 10px dotted yellow;
+            border-radius: 50%;
+            cursor: not-allowed;
+            font-family: "Comic Sans MS", cursive;
+            animation: shake 0.5s infinite, blink 1s infinite;
+            text-transform: uppercase;
+            box-shadow: 10px 10px 0 red, -10px -10px 0 blue;
+            color: purple;
+            text-shadow: 2px 2px lime, -2px -2px orange;
+            transform: rotate(-5deg);
+        }
+
+        #quitButton:hover {
+            animation: spin 0.5s linear infinite;
+        }
+
+        .modal {
+            position: absolute;
+            background: repeating-linear-gradient(
+                45deg,
+                rgb(255, 105, 180),
+                rgb(255, 0, 0) 10px,
+                rgb(255, 255, 0) 10px,
+                rgb(0, 255, 0) 20px
+            );
+            padding: 20px;
+            border-radius: 0 50% 0 50%;
+            box-shadow: 0 0 50px rgb(0, 255, 255);
+            display: none;
+            text-align: center;
+            transform: rotate(5deg);
+            border: 5px dashed cyan;
+        }
+
+        .modal p {
+            color: blue;
+            margin-bottom: 20px;
+            font-size: 24px;
+            text-shadow: 2px 2px red, -2px -2px yellow;
+            animation: shake 0.3s infinite;
+        }
+
+        .modal button {
+            margin: 0 10px;
+            padding: 8px 20px;
+            border: 5px ridge pink;
+            border-radius: 25% 0 25% 0;
+            cursor: help;
+            font-size: 20px;
+            font-family: "Comic Sans MS", cursive;
+            background: linear-gradient(to right, red, yellow, lime, cyan);
+            color: purple;
+            text-shadow: 1px 1px white, -1px -1px black;
+            animation: blink 0.5s infinite;
+        }
+
+        .modal button:hover {
+            animation: spin 1s linear infinite;
+        }
+
+
+        marquee {
+            position: fixed;
+            bottom: 0;
+            background: yellow;
+            color: red;
+            font-size: 24px;
+            width: 100%;
+        }
+
+
+        .laughing-dog {
+            position: fixed;
+            animation: dogLaugh 0.5s infinite, fadeOut 2s forwards;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .dog-image {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 5px dashed lime;
+        }
+
+        .dog-message {
+            font-family: "Comic Sans MS", cursive;
+            font-size: 24px;
+            color: #ff00ff;
+            text-shadow: 2px 2px red, -2px -2px yellow;
+            margin-top: 10px;
+            animation: shake 0.3s infinite;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 10px;
+            border: 3px dashed lime;
+        }
+
+        @keyframes dogLaugh {
+            0%, 100% { transform: rotate(-10deg) scale(1); }
+            50% { transform: rotate(10deg) scale(1.2); }
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        .fly {
+            position: fixed;
+            width: 50px;
+            height: 50px;
+            z-index: 9999;
+            pointer-events: none;
+            transition: transform 0.2s;
+        }
+
+        .fly img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        @keyframes rotateFly {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(45deg); }
+            50% { transform: rotate(-30deg); }
+            75% { transform: rotate(60deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+
+        @keyframes rainbow-text {
+            0% { color: #ff0000; }
+            20% { color: #ff00ff; }
+            40% { color: #00ff00; }
+            60% { color: #ffff00; }
+            80% { color: #00ffff; }
+            100% { color: #ff0000; }
+        }
+
+        .fake-link {
+            text-decoration: underline;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+
+        .harold-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            z-index: 100000;
+        }
+
+        .harold-modal.loading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes glitchy-load {
+            0% { 
+                clip-path: inset(0 100% 0 0);
+                filter: grayscale(1) brightness(0.5);
+            }
+            25% {
+                clip-path: inset(0 75% 0 0);
+                filter: grayscale(0.8) brightness(0.7);
+            }
+            50% {
+                clip-path: inset(0 50% 0 0);
+                filter: grayscale(0.6) brightness(0.8);
+            }
+            75% {
+                clip-path: inset(0 25% 0 0);
+                filter: grayscale(0.3) brightness(0.9);
+            }
+            90% {
+                clip-path: inset(0 0 0 0);
+                filter: grayscale(0) brightness(1);
+            }
+            92% {
+                clip-path: inset(20% 0 20% 0);
+                filter: grayscale(0.5) brightness(1.2);
+            }
+            94% {
+                clip-path: inset(0 0 0 0);
+                filter: grayscale(0) brightness(1);
+            }
+            96% {
+                clip-path: inset(0 80% 0 0);
+                filter: grayscale(1) brightness(0.3);
+            }
+            98% {
+                clip-path: inset(0 0 0 0);
+                filter: grayscale(0) brightness(1);
+            }
+            100% {
+                clip-path: inset(0 0 0 0);
+                filter: grayscale(0) brightness(1);
+            }
+        }
+
+        .harold-modal img {
+            width: 80%;
+            max-width: 800px;
+            opacity: 0;
+        }
+
+        .harold-modal.loading img {
+            opacity: 1;
+            animation: glitchy-load 4s steps(10) forwards;
+        }
+
+        .harold-modal h1 {
+            font-family: "Comic Sans MS", cursive;
+            font-size: 72px;
+            color: white;
+            margin: 20px 0;
+            opacity: 0;
+        }
+
+        .harold-modal.loading h1 {
+            opacity: 1;
+            animation: glitchy-load 4s steps(10) forwards;
+        }
+
+
+        .countdown-container {
+            display: none;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 999999;
+            transition: all 0.3s ease-out;
+        }
+
+        .countdown {
+            background: black;
+            color: #00ff00;
+            font-family: "Courier New", monospace;
+            font-size: 40px;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-align: center;
+            min-width: 100px;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .quick-button {
+            background: #ff0000;
+            color: white;
+            font-family: "Courier New", monospace;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+            animation: pulse 0.5s infinite alternate;
+        }
+
+        @keyframes pulse {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+
+        .countdown.negative {
+            color: #ff0000;
+        }
+
+        .countdown.message {
+            font-family: "Courier New", monospace;
+            font-size: 30px;
+            color: #ff0000;
+            white-space: nowrap;
+            letter-spacing: 1px;
+        }
+
+        .dark-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 99998;
+            transition: opacity 1s linear;
+        }
